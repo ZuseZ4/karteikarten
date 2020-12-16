@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# based on http://www.takenote.it/blog/?p=315
+
+# expects: A Latex-Beamer pdf. 
+#  The title of each slide is used as front side 
+#  The text is used for the backside
+#
+# usage: ./anki2pdf Ana3Karteikarten.pdf ana3 
+# last argument should be unique, used to name created cards.
+#
+# import created ana3_anki.txt file using anki to create a new deck (allow html)
+
+#TODO adjust this path based on your installation:
+dst=~/.local/share/Anki2/Manuel/collection.media/
+
+echo "Absolute Anki collection.media path: " $dst
+echo "Syntax: wo nome_file.pdf prefix"
+echo "Working on pdf: "$1
+
+nome=$2_anki.txt
+immagini=$2_*.png
+if test -f "$nome"; then
+  rm $nome
+fi
+if test -f "$immagini"; then
+  rm $immagini
+fi
+
+# width of each card
+let w=484
+# height of each card
+let h2=53 #might need some adjustment
+let h=363
+let h3=$h-$h2
+
+# discover pages number
+NPAGES=`pdftk $1 dumpdata | grep NumberOfPages | cut -d" " -f2`
+let pag=NPAGES
+let ciclo=pag-1
+echo "Pages with cards: "$pag
+
+# convert pdf pages to images
+convert -quality 100 -density 100x100 $1 $2_img_%d.png
+
+# working on each page
+for i in `seq 0 1 $ciclo`; do
+
+    imgf=$2"_img_"$i".png"
+    imgb=$2"_img_"$b".png"
+
+    # border offsets
+    let floff=0    # front pages - X left top border offset
+    let ftoff=0    # front pages - Y left top border offset
+    let bloff=0    # back pages - X left top border offset
+    let btoff=53    # back pages - Y left top border offset
+
+    fcarg=$w"x"$h2"+"$floff"+"$ftoff
+    outf=$2"_"$i"f.png"
+
+
+    bcarg=$w"x"$h3"+"$bloff"+"$btoff
+    outb=$2"_"$i"b.png"
+
+    echo Working on: $outf - $outb
+
+    # create front and backside
+    convert -quiet $imgf -crop $fcarg $outf
+    convert -quiet $imgf -crop $bcarg $outb
+
+    # move files into anki collection.media file 
+    mv $outb $dst
+    mv $outf $dst
+
+    # rm tmp data
+    rm $imgf
+done
+
+# write cfg text file for Anki 
+for i in `seq 0 1 $ciclo`; do
+   outf=$2"_"$i"f.png"
+   outb=$2"_"$i"b.png"
+   echo "<img src=\""$outf"\">;<img src=\""$outb"\">">>$nome
+done
