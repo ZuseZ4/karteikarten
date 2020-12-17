@@ -1,47 +1,163 @@
+% III Das Lebesgue-Maß
 
 \begin{frame}
-\frametitle{}
-
+\frametitle{Lemma III.1}
+Der elementargeometrische Inhalt $vol^n: \script{Q}^n \to [0, \infty]$ ist ein Prämaß auf dem Halbring $\script{Q}^n$ im $\mathbb{R}^n$
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
-
+\frametitle{Def. III.2 / n-dim (äußere) Lebesgue-Maß }
+Das \textbf{n-dimensionale äußere Lebesgue-Maß} einer Menge $E \subseteq \mathbb{R}^n$ ist definiert durch
+    \begin{align*}
+      \lambda^n(E) := inf\{\sum\limits_{k \in \mathbb{N}} vol^n(Q_k) \ | \ Q_k \in \script{Q}^n, E \subseteq \bigcup\limits_{k \in \mathbb{N}} Q_k\}
+    \end{align*}
+    $\lambda^n|_{\script{M}(\lambda^n)}$ ist das \textbf{n-dimensionale Lebesguemaß}.\\
+    \medskip
+Bemerkung:\\
+Bem nach Satz II.31 (i.A. II.30) $\implies$ $\lambda^n$ regulär und vollständig auf $\script{M}(\lambda^n)$
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
+\frametitle{Lemma III.3}
+Betrachte für $k \in \mathbb{N}_0$ die Würfelfamilie $\script{W}_k = \{Q_{k,m} := 2^{-k}(m + [0,1]^n) \ | \ m \in \mathbb{R}^n\}$ und definiere für $E \subseteq \mathbb{R}^n$ die Mengen
+    \begin{align*}
+    F_k(E) := \bigcup \{Q \in \script{W}_k \ | \ Q \subseteq E\} \ \
+    F^k(E) := \bigcup \{Q \in \script{W}_k \ | \ Q \cap E \neq \emptyset\}
+    \end{align*}
+    Dann gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $F_k(E)$ und $F^k(E)$ sind abgeschlossene Vereinigungen von abzählbar vielen kompakten Quadern mit paarweise disjunktem Inneren.
+      \item $F_1(E) \subseteq F_2(E) \subseteq ... \subseteq E \subseteq ... \subseteq F^2(E) \subseteq F^1(E)$ 
+      \item $F_k(E) \supseteq \{x \in \mathbb{R}^n \ | \ dist(x, \mathbb{R}^n \setminus E) > s^{-k} \sqrt{n}\}$\\
+      $F^k(E) \subseteq \{x \in \mathbb{R}^n \ | \ dist(x, \mathbb{R}^n \setminus E) \leq s^{-k} \sqrt{n}\}$
+      \item $\mathring{E} \subseteq \bigcup\limits_{k \in \mathbb{N}} F_k(E) \subseteq E \ \ \ , \ \ \ \bar{E} \supseteq \bigcap\limits_{k \in \mathbb{N}} F^k(E) \supseteq E$
+    \end{enumerate}
+\end{frame}
 
+% Vorlesung 9
+
+\begin{frame}
+\frametitle{Lemma III.4}
+Die Borelmengen $\script{B}^n$ sind die vom Halbring $\script{Q}^n$ der Quader, dem Ring $\script{F}^n$ der Figuren, und dem System $\script{C}^n$ der abgeschlossenen Mengen des $\mathbb{R}^n$ erzeugten $\sigma$-Algebra, d.h. $\sigma(\script{Q}^n) = \script{B}^n = \sigma(\script{Q}^n) = \sigma(\script{F}^n) = \sigma(\script{C}^n)$
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
-
+\frametitle{Satz III.5}
+Für $\lambda^n$ gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item Alle Borelmengen sind Lebesgue-messbar 
+      \item Zu $E \subseteq \mathbb{R}^n \ \exists$ Borelmenge $B \supseteq E$ mit $\lambda^n(B) = \lambda^n(E)$
+      \item $\lambda^n(K) < \infty \ \forall K \subseteq \mathbb{R}^n$ kompakt
+    \end{enumerate}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
-
+\frametitle{Lemma III.6}
+Für $E \subseteq \mathbb{R}^n$ beliebig gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $\lambda^n(E) = inf\{\lambda^n(U) \ | \ U \text{ offen }, U \supset E\}$
+      \item $\lambda^n(E) = inf\{\lambda^n(K) \ | \ K \text{ kompakt }, K \subset E\}$, falls $E \ \lambda^n$-messbar
+    \end{enumerate}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
-
+\frametitle{Satz III.7}
+$D \subseteq \mathbb{R}^n$ ist genau dann $\lambda^n$-messbar, wenn eine der beiden Bedingungen gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $\exists$ Borlemenge $E \supset D$ mit $\lambda^n(E \setminus D) = 0$
+      \item $\exists$ Borlemenge $C \subset D$ mit $\lambda^n(D \setminus C) = 0$
+    \end{enumerate}
+    Es kann $E = \bigcap\limits_{i \in \mathbb{N}} U_i$ mit $U_i$ offen und $C = \bigcup\limits_{j \in \mathbb{N}} A_j$ mit $A_j$ abgeschlossen gewählt werden.
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
+\frametitle{Satz III.8 (Satz von Lusin)}
+Sei $A \subseteq \mathbb{R}^n$ offen mit $\lambda^n(A) < \infty$ und sei $f \ \lambda^n$-messbar auf $A$ mit Werten in $\mathbb{R}$. Dann existiert $\forall \epsilon > 0$ ein $K = K_{\epsilon} \subseteq A$ kompakt, mit:
+    \begin{enumerate}[label=\roman*)]
+      \item $\lambda^n(A \setminus K) < \epsilon$
+      \item $f|_k$ ist stetig
+    \end{enumerate}
+\end{frame}
+% Vorlesung 10
 
+\begin{frame}
+\frametitle{Def. III.9 / Borelmaß}
+in äußeres Maß $\mu$ auf $\mathbb{R}^n$ heißt \textbf{Borelmaß}, falls gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item Alle Borelmengen sind $\mu$-messbar
+      \item $\mu(K)<\infty \ \forall K \subseteq \mathbb{R}^n$ kompakt
+    \end{enumerate}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{}
-
+\frametitle{translationsinvariant}
+$\lambda^n$ ist Borelmaß nach Satz III.5.\\
+    Ein äußeres Maß $\mu$ auf $\mathbb{R}^n$ heißt \textbf{translationsinvariant}, falls \\
+    $\mu(E + a) = \mu(E) \ \forall E \subset \mathbb{R}^n, a \in \mathbb{R}^n$ mit $E + a := \{x + a \ | \ x \in E\}$\\
+    Bemerke: $vol^n:\script{Q}^n \to [0, \infty]$ ist translationsinvariant $\implies$ $\lambda^n$ ist translationsinvariant.
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Lemma III.10}
+Ist $\mu$ translationsinvariantes Borelmaß auf $\mathbb{R}^n$, so ist jede Koordinaten-Hyperebene $H := \{x \in \mathbb{R}^n \ | \ x_i = c\} (i=1,...,n)$ eine $\mu$-Nullmenge.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz III.11}
+Sei $\mu$ translationsinvariantes Borelmaß auf $\mathbb{R}^n$. Dann gilt mit $\theta := \mu([0,1]^n)$:
+    \begin{align*}
+      \mu(E) = \theta \lambda^n(E) \ \ \ \ \forall \ \lambda^n \text{-messbaren } E \subseteq \mathbb{R}^n
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lemma III.12}
+$U \subseteq \mathbb{R}^n$ offen, $f: U \to \mathbb{R}^n$ lipschitz-stetig mit Konstante $\Lambda$ bzgl. $||.||_{\infty}$. Dann gilt:
+    \begin{align*}
+      \lambda^n(f(E)) \leq \Lambda^n \lambda^n(E) \ \ \ \ \forall E \subseteq U
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz III.13}
+$U \subseteq \mathbb{R}^n$ offen und $f \in C^1(U, \mathbb{R}^n)$. Dann gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $N \subseteq U$ $\lambda^n$-Nullmenge $\implies$ $f(N)$ $\lambda^n$-Nulllmenge
+      \item $E \subseteq U$ $\lambda^n$-messbar $\implies$ $f(E)$ $\lambda^n$-messbar
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz III.14}
+Sei $S \in O(\mathbb{R}^n)$ und $a \in \mathbb{R}^n$, dann gilt:
+    \begin{align*}
+      \lambda^n(S(E) + a) = \lambda^n(E) \ \ \ \ \forall E \subseteq \mathbb{R}^n
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lemma III.15 (Polarzerlegung)}
+$\forall S \in GL(\mathbb{R}^n) \ \exists$ Diagonalmatrix $\Lambda$ mit Einträgen $\lambda_i > 0, i=1,...,n$ und \\
+    $T_1, T_2 \in O(\mathbb{R}^n)$, sodass $S = T_1 \Lambda T_2$ 
+\end{frame}
+
+\begin{frame}
+\frametitle{Satz III.16 (Lineare Transformationsformel)}
+Für eine lineare Abbildung $S: \mathbb{R}^n \to \mathbb{R}^n$ gilt:
+    \begin{align*}
+      \lambda^n(S(E)) = |det(S)| \ \lambda^n(E) \ \ \ \ \forall E \subseteq \mathbb{R}^n
+    \end{align*}
+\end{frame}
+

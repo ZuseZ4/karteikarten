@@ -1,0 +1,135 @@
+% IV Lebesgue-Integral
+
+\begin{frame}
+\frametitle{Def. IV.1 / $\mu$-Treppenfunktion / einfach}
+$X$ Menge, $\mu$ äußeres Maß. Eine funktion $\zeta: X \to \mathbb{R}$ heißt $\bm{\mu}$\textbf{-Treppenfunktion}, wenn sie $\mu$-messbar ist und nur eindlich viele Funktionswerte annimmt.\\
+    Die Menge $\script{T}(\mu)$ der $\mu$-Treppenfunktionen ist ein $\mathbb{R}$-Vektorraum. Wir setzen
+    \begin{align*}
+      \script{T}^+(\mu)=\{\zeta \in \script{T}(\mu) \ | \ \zeta \geq 0\}
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lemma IV.2}
+Das Integral $I: \script{T}^+(\mu) \to [0,\infty]$ ist durch $(\star)$ wohldefiniert. Für $\zeta, \phi \in \script{T}^+(\mu)$ und $\alpha, \beta \in [0, \infty)$ gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $I(\alpha \zeta + \beta \psi) = \alpha I(\zeta) + \beta I(\psi)$
+      \item $\zeta \leq \psi \implies I(\zeta) \leq I(\psi)$ 
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Def. IV.3 (Lebesgue-Integral) / Unterfunktion}
+Für $f: X \to [0,\infty]$ $\mu$-messbar, setze
+    \begin{align*}
+      \int f d\mu = sup\{I(\zeta) \ | \ \zeta \in \script{T}^+(\mu), \zeta \leq f\}
+    \end{align*}
+    $\zeta$ heißt \textbf{Unterfunktion} von f.\\
+    Ist $f: X \to [-\infty, \infty]$ $\mu$-messbar und sind die Integrale von $f^{\pm}$ nicht beide unendlich, so setzen wir
+    \begin{align*}
+      \int f d\mu = \int f^+ d\mu - \int f^- d\mu \ \ \in [-\infty, \infty] 
+    \end{align*}
+    \medskip
+Bemerkung:\\
+Für $f \geq 0$ sind beide Schritte kompatibel, denn dann gilt $f = f^+$ und $f^- = 0$
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lemma IV.4}
+Für $f \in \script{T}^+(\mu)$ gilt: $\int f d\mu = I(f)$
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Def. IV.5 / integrierbar}
+$f:X \to \bar{\mathbb{R}}$ heißt \textbf{integrierbar} bzgl. $\mu$, wenn sie $\mu$-messbar ist und wenn gilt:
+    \begin{align*}
+      \int f d\mu \in \mathbb{R} \Leftrightarrow \int f^+ d\mu + \int f^- d\mu < \infty
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz IV.6}
+$f,g:X \to \bar{\mathbb{R}}$ $\mu$-messbar. Ist $f \leq g$ $\mu$-fast überall und $\int f^- d\mu < \infty$, so existieren beide Integrale und es ist: $\int f d\mu \leq \int g d\mu$\\
+    \glqq$\geq$\grqq gilt entsprechend wenn $f^+ d\mu < \infty$\\
+\medskip
+Bemerkung:\\
+$f,g: X \to \bar{\mathbb{R}}$, $f$ $\mu$-messbar und $g = f$ $\mu$-fast überall $\stackrel{\text{Kapitel II}}{\implies} g$ $\mu$-messbar\\
+    Satz IV.6 $\implies \int g^{\pm} d\mu = \int f^{\pm} d\mu \implies \int f d\mu = \int g \ d\mu$
+\end{frame}
+
+% Vorlesung 12
+
+\begin{frame}
+\frametitle{Lemma IV.7 (Tschebyscheff-Ungleichung)}
+Für $f:X \to [0, \infty]$ $\mu$-messbar mit $\int f d\mu < \infty$ gilt:
+    \begin{align*}
+      \mu(\{f\geq s\}) \leq \begin{cases}
+        \dfrac{1}{s} \cdot \int f d\mu & \text{ für } s \in (0, \infty)\\
+        0 & \text{ für } s = \infty
+      \end{cases}
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lemma IV.8}
+Sei $f: X \to \bar{\mathbb{R}}$ $\mu$-messbar.
+    \begin{enumerate}[label=\roman*)]
+      \item ist $\int f d\mu < \infty \implies \{f = \infty\}$ ist $\mu$-Nulllmenge
+      \item ist $f \geq 0$ und $\int f d\mu = 0 \implies \{f > 0\}$ ist $\mu$-Nullmenge
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz IV.9}
+Zu $f: X \to [0,\infty]$ $\mu$-messbar gibt es eine Folge $f_k \in \script{T}^+(\mu)$ mit $f_0 \leq f_1 \leq ...$ und $\lim\limits_{k \to \infty} f_k(x) = f(x) \ \forall x \in X$.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz IV.10 (Monotonie Konvergenz / Beppo-Levi)}
+Seien $f_k:X \to [0,\infty]$ $\mu$-messbar mit $f_1 \leq f_2 \leq ...$ und $f: X \to [0, \infty]$ mit $f(x) := \lim\limits_{k \to \infty} f_k(x)$. Dann gilt:
+    \begin{align*}
+      \int f d\mu = \lim\limits_{k \to \infty} \int f_k \ d\mu
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Satz IV.11}
+$f,g: X \to \bar{\mathbb{R}}$ integrierbar bzgl. $\mu$, so ist auch $\alpha f + \beta g$ integrierbar $\forall \alpha, \beta \in \mathbb{R}$ und es gilt:
+    \begin{align*}
+      \int (\alpha f + \beta g) \ d\mu = \alpha \int f d\mu + \beta \int g d\mu
+    \end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Def. IV.12 / auf E integrierbar}
+Sei $\mu$ ein äußeres Maß auf $X$ und $E \subseteq X$ sei $\mu$-messbar. Dann setzen wir, falls das rechte Integral existiert
+    \begin{align*}
+      \int\limits_E f d\mu = \int f \chi_E d\mu
+    \end{align*}
+    $f$ heißt \textbf{auf $\bm{E}$ integrierbar}, wenn $f \chi_E$ integrierbar ist.\\
+\medskip
+Bemerkung:\\
+Wegen $(f \chi_E)^{\pm} = f^{\pm} \chi_E \leq f^{\pm}$ existiert das Integral von $f$ über $E$ auf jeden Fall dann, wenn $\in f d\mu$ existiert. (Speziell für $f \geq 0$)
+\end{frame}
+
+% Vorlesung 13
+
+\begin{frame}
+\frametitle{Satz IV.13}
+Sei $f: X \to \bar{\mathbb{R}}$ $\mu$-messbar. Dann gelten:
+    \begin{enumerate}[label=\roman*)]
+      \item $f$ integrierbar $\Leftrightarrow |f|$ integrierbar
+      \item Es gilt: $|\int f d\mu| \leq \int |f| d\mu$, falls das Integral von $f$ existiert
+      \item Ist $g: X \to [0, \infty]$ $\mu$-messbar mit $|f| \leq g$ $\mu$-fast überall und $\int g d\mu < \infty$, so ist $f$ integrierbar 
+    \end{enumerate}
+\end{frame}
