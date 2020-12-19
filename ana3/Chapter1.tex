@@ -21,14 +21,14 @@ Jeder Durchschnitt von (endlich oder unendlich vielen) $\sigma$-Algebren auf der
 \end{frame}
 
 \begin{frame}
-\frametitle{Def. I.3}
+\frametitle{Def. I.3: erzeugend}
       Für ein Mengensystem $\script{E} \subseteq \script{P}(X)$ heißt $\sigma(\script{E}) := \bigcap\{\script{A}|\script{A}$ ist $\sigma$-Algebra in $X$ mit $\script{E} \subseteq \script{A}\}$ die von $\script{E}$ \textbf{erzeugte $\bm{\sigma}$-Algebra}. Man nennt $\script{E}$ das \textbf{erzeugende System} von $\sigma(\script{E})$.\\
       \medskip
             Dieser Durchschnitt ist nicht-trivial, denn $\script{P}(X)$ ist $\sigma$-Algebra mit $\script{E} \subseteq \script{P}(X)$.
 \end{frame}
 
 \begin{frame}
-\frametitle{Def. I.4}
+\frametitle{Def. I.4: Konvergenz}
    Eine Folge $(s_k) \subseteq \bar{\mathbb{R}}\ (k \in \mathbb{N})$ konvergiert gegen $s \in \bar{\mathbb{R}}$, falls eine der folgenden Alternativen gilt:
       \begin{enumerate}[label=(\roman*)]
         \item $s \in \mathbb{R}$ und $\forall \epsilon>0$ gilt: $s_k \in (s-\epsilon, s+\epsilon) \subseteq \mathbb{R}$ für k hinreichend groß
@@ -58,7 +58,7 @@ Sei $\script{A} \subseteq \script{P}(X)$ eine $\sigma$-Algebra, eine nicht-negat
 
 
 \begin{frame}
-\frametitle{Def. I.6}
+\frametitle{Def. I.6: endliches Maß}
       Sei $(X, \script{A}, \mu)$ ein Maßraum. Das Maß $\mu$ heißt \textbf{endlich}, wenn $\mu(A) < \infty\ \forall A \in \script{A}$ und $\bm{\sigma}$\textbf{-endlich}, wenn es eine Folge $(X_i) \in \script{A}$ mit $\mu(X_i) < \infty$ gibt, sodass $X=\bigcup\limits_{i \in \mathbb{N}} X_i$. Falls $\mu(X) = 1$, so wird $\mu$ \textbf{Wahrscheinlichkeits-Maß} genannt.
 \end{frame}
 
@@ -93,7 +93,7 @@ Sei $(X,\script{A},\mu)$ Maßraum. Dann gelten für Mengen $A_i \in \script{A}, 
 
 
 \begin{frame}
-\frametitle{Def. I.8}
+\frametitle{Def. I.8: Nullmenge / vollständig}
 $(X, \script{A}, \mu)$ Maßraum.\\
       Jede Menge $A \in \script{A}$ mit $\mu(A) = 0$ heißt $\bm{\mu}$\textbf{-Nullmenge}. Das System aller $\mu$-Nullmengen bezeichnen wir mit $\bm{\script{N}(\mu)}$. Das Maß $\mu$ heißt \textbf{vollständig}, wenn gilt:\\
       \[
@@ -112,7 +112,7 @@ $(X, \script{A}, \mu)$ Maßraum.\\
 
 
 \begin{frame}
-\frametitle{Zu Def. I.8: Vervollstandigung}
+\frametitle{Zu Def. I.8: Vervollständigung}
 $\bar{\mu}$ ist wohldefiniert: $A \cup N = B \cup P$ mit $A,B\in \script{A}, \ P,N \in \script{T}_{\mu} \implies \exists C \in \script{A}, \mu(C) = 0: P \subseteq C \implies A \subseteq B \cup C \implies \mu(A) \leq \mu(B) + \mu(C) = \mu(B)$\\
       Symm $\implies \mu(A) = \mu(B)$\\
       $\bar{\mu}$ heißt \textbf{Vervollständigung} von $\mu$
@@ -132,7 +132,7 @@ $(X, \script{A}, \mu)$ Maßraum und $(X, \bar{\script{A}}_{\mu}, \bar{\mu})$ sei
 
 
 \begin{frame}
-\frametitle{Def. I.11}
+\frametitle{Def. I.11: $\bm{\script{A}-\script{C}-}$\textbf{messbar}}
 $(X, \script{A}), (Y, \script{C})$ messbare Räume. Eine Abbildung $f: X \to Y$ heißt $\bm{\script{A}-\script{C}-}$\textbf{messbar}, falls $f^{-1}(\script{C}) \subseteq{\script{A}}$\\
 Falls $\script{A}, \script{C}$ klar sind, bezeichnen wir $f$ einfach als messbar
 
@@ -155,14 +155,14 @@ Jede stetige Abbildung $f: \mathbb{R}^n \to \mathbb{R}^n$ ist $\mathbb{B}^n$-$\m
 
 
 \begin{frame}
-\frametitle{Def. I.13}
+\frametitle{Def. I.13: numerische Funktion}
 $(X, \script{A})$ messbarer Raum und $D \in \script{A}$.\\
       Eine Funktion $f: D \to \bar{\mathbb{R}}$ heißt \textbf{numerische Funktion}.
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Lemma I.14}
+\frametitle{Lemma I.14: Äquivalente Aussagen}
 $(X, \script{A})$ messbarer Raum, $D \in \script{A}$ und $f: D \to \bar{\mathbb{R}}$.\\
       Dann sind folgende Aussagen äquivalent:
       \begin{enumerate}[label=(\roman*)]
@@ -208,7 +208,7 @@ $(X, \script{A})$ messbarer Raum, $D \in \script{A}$, $f,g: D \to \bar{\mathbb{R
 
 
 \begin{frame}
-\frametitle{Def I.18}
+\frametitle{Def I.18: $\bm{\mu}$\textbf{-messbar} (auf $X$}
 $(X, \script{A}, \mu)$ Maßraum. Eine auf $D \in \script{A}$ definierte Funktion $f: D \to \bar{\mathbb{R}}$ heißt\\
       $\bm{\mu}$\textbf{-messbar} (auf $X$), wenn $\mu(X \setminus D) = 0$ und $f$ $\script{A|_D}$-messbar ist.\\
       ($\script{A}|_D := \{A \cap D | A \in \script{A}\}$, siehe Blatt 1)
